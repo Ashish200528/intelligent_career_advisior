@@ -53,6 +53,17 @@ def logout():
     flash('You have been logged out', 'info')
     return redirect(url_for('index'))
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        # Registration logic placeholder (currently just flashes a message)
+        name = request.form.get('name')
+        email = request.form.get('email')
+        password = request.form.get('password')
+        flash('Registration is currently not implemented. Please log in with the admin credentials.', 'info')
+        return redirect(url_for('login'))
+    return render_template('register.html')
+
 @app.route('/dashboard')
 @login_required
 def dashboard():
